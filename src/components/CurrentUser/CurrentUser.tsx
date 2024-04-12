@@ -4,45 +4,46 @@ import Typography from "../Typography";
 import ImageUploader from "./ImageUploader/ImageUploader";
 
 interface ICurrentUserProps {
-  style?: string;
+	style?: string;
 }
 
 const CurrentUser = ({ style }: ICurrentUserProps) => {
-  const defaultData = {
-    name: "Marry Joe",
-    email: "Marryjoe@gmail.com",
-  };
+	const [user, setUser] = useState<{
+		name: string | undefined;
+		email: string | undefined;
+		image?: string | undefined;
+	}>();
+	const [image, setImage] = useState(userImage);
 
-  const [user, setUser] = useState(defaultData);
-  const [image, setImage] = useState(userImage);
+	useEffect(() => {
+		const name = localStorage.getItem("userName");
+		const email = localStorage.getItem("email");
+		const image = localStorage.getItem("image");
 
-  useEffect(() => {
-    const name = localStorage.getItem("userName");
-    const email = localStorage.getItem("email");
-    const image = localStorage.getItem("image");
+		setUser({
+			name: name || undefined,
+			email: email || undefined,
+		});
 
-    setUser({
-      name: name || defaultData.name,
-      email: email || defaultData.email,
-    });
+		setImage(image || userImage);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
-    setImage(image || userImage);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <div className={`flex ${style}`}>
-      <ImageUploader image={image} setImage={setImage} />
-      <div>
-        <Typography>
-          <Typography.Heading variant="h3" style="m-0 mt-2 mb-1">
-            {user.name}
-          </Typography.Heading>
-          <Typography.Heading variant="h4">{user.email}</Typography.Heading>
-        </Typography>
-      </div>
-    </div>
-  );
+	return (
+		<div className={`flex items-center ${style}`}>
+			<ImageUploader image={image} setImage={setImage} />
+			<div>
+				<Typography>
+					<Typography.Heading variant="h3" style="m-0 mt-2 mb-1">
+						{user?.name !== undefined ? user.name : "User Not Logged In"}
+					</Typography.Heading>
+					<Typography.Heading variant="h4">
+						{user?.email !== undefined ? user.email : "User Not Logged In"}
+					</Typography.Heading>
+				</Typography>
+			</div>
+		</div>
+	);
 };
 
 export default CurrentUser;

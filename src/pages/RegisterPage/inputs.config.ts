@@ -7,14 +7,7 @@ export const inputConfig = [
     autoComplete: "name",
   },
   {
-    type: "tel",
-    label: "Phone Number",
-    placeholder: "Enter Phone Number",
-    name: "phoneNumber",
-    autoComplete: "tel",
-  },
-  {
-    type: "text",
+    type: "email",
     label: "Email",
     placeholder: "Enter Email",
     name: "email",
@@ -25,13 +18,6 @@ export const inputConfig = [
     label: "Password",
     placeholder: "Enter Password",
     name: "password",
-    autoComplete: "password",
-  },
-  {
-    type: "text",
-    label: "Company Name",
-    placeholder: "Enter Company Name",
-    name: "companyName",
-    autoComplete: "organization",
-  },
+    autoComplete: "new-password",
+  }
 ];

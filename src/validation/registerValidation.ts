@@ -10,6 +10,4 @@ export const registerSchema = yup.object().shape({
     .matches(/[a-z]/, getCharacterValidationError("lowercase"))
     .matches(/[A-Z]/, getCharacterValidationError("uppercase")),
   fullName: yup.string().required("please Enter Your Full Name"),
-  phoneNumber: yup.string().required("please Enter Your Phone number"),
-  companyName: yup.string().required("please Enter a company name"),
 });

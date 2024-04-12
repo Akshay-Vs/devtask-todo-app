@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AuthPage from "./pages/AuthPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import HomePage from "./pages/HomePage";
+import {
+	AccountPage,
+	AuthPage,
+	HomePage,
+	LoginPage,
+	RegisterPage,
+} from "./pages";
 
 const App = () => {
 	return (
@@ -12,6 +15,7 @@ const App = () => {
 				<Route path="/welcome" element={<AuthPage />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/register" element={<RegisterPage />} />
+				<Route path="/account" element={<AccountPage />} />
 				<Route path="*" element={<h1>404 Page Not Found</h1>} />
 			</Routes>
 		</BrowserRouter>

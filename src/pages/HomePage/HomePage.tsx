@@ -1,7 +1,16 @@
-import React from "react";
+import { useEffect } from "react";
+import { isAuthenticated } from "../../utils/isAuthenticated";
+import NavBar from "../../components/NavBar";
 
-const HomePage = () => {
-	return <main></main>;
+const UserProfile = () => {
+	useEffect(() => {
+		isAuthenticated() ? "" : (location.href = "/welcome");
+	}, []);
+	return (
+		<main>
+			<NavBar title="My List" />
+		</main>
+	);
 };
 
-export default HomePage;
+export default UserProfile;

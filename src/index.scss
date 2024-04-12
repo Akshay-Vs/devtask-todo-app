@@ -1,0 +1,17 @@
+@import "./styles/themeColors.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $bg-color;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+}

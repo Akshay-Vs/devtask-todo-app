@@ -1,0 +1,47 @@
+@import "../../styles/typography.scss";
+@import "../../styles/themeColors.scss";
+
+.button {
+  width: fit-content;
+  min-width: 335px;
+  height: 46px;
+  border-radius: 6px;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 0px 6px #70707085;
+  }
+  &:active {
+    border-color: #0a0a0a;
+  }
+
+  &--primary {
+    background-color: $primary-color;
+    color: $bg-color;
+    cursor: pointer;
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+    color: $content-color;
+    cursor: pointer;
+  }
+
+  &--disabled {
+    background-color: $disabled-color;
+    color: $content-color;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &__text {
+    @include rubik();
+    letter-spacing: 0px;
+  }
+}

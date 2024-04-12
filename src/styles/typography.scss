@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@mixin rubik(
+  $font-size: 16px,
+  $font-weight: normal,
+  $font-style: normal,
+  $font-stretch: normal,
+  $letter-spacing: 0px,
+  $line-height: 17px
+) {
+  font-family: "Rubik", sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  font-style: $font-style;
+  font-stretch: $font-stretch;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+}

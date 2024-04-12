@@ -1,0 +1,71 @@
+@import "../../styles/typography.scss";
+@import "../../styles/themeColors.scss";
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__text-input {
+    position: relative;
+    margin: 12px 0;
+
+    &__input {
+      width: 335px;
+      height: 52px;
+      border-radius: 6px;
+      font-size: 18px;
+      padding: 0 15px;
+      border: 2px solid $border-color;
+      background: transparent;
+
+      color: $content-color;
+      font-weight: 500;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+
+      &::placeholder {
+        color: $content-secondary-color;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      &:focus {
+        border: 2px solid $primary-color;
+      }
+    }
+
+    &__label {
+      @include rubik($font-weight: 500, $font-size: 13px);
+      position: absolute;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: 0.3s;
+      top: 0;
+      left: 15px;
+      padding: 0 2px;
+      color: $primary-color;
+      background: $bg-color;
+      opacity: 1;
+    }
+  }
+
+  &__radio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 6px 0;
+
+    &:checked {
+      border-color: $primary-color;
+    }
+
+    &__label {
+      @include rubik($font-weight: 400, $font-size: 14px);
+      color: $content-color;
+    }
+  }
+}

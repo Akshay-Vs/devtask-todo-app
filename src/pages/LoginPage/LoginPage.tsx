@@ -14,7 +14,7 @@ const LoginPage = () => {
 	const [error, setError] = useState();
 	const [buttonState, setButtonState] = useState<
 		"enabled" | "disabled" | "loading"
-	>("disabled");
+	>("enabled");
 
 	const handleCredentialsChange = async (
 		event: React.ChangeEvent<HTMLInputElement>

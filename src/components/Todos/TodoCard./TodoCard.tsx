@@ -9,6 +9,7 @@ import {
 	faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import { todoType } from "../../../types/todo.type";
 
 interface ITodoCardProps {
 	title: string;
@@ -16,7 +17,8 @@ interface ITodoCardProps {
 	status: string;
 	dueDate: string;
 	id: string;
-	handleDelete: (id: string) => void;
+	handleDelete: (data: string) => void;
+	handleUpdate: (data: todoType) => void;
 }
 
 const TodoCard = ({
@@ -26,6 +28,7 @@ const TodoCard = ({
 	dueDate,
 	id,
 	handleDelete,
+	handleUpdate,
 }: ITodoCardProps) => {
 	const [currentStatus, setCurrentStatus] = useState<string>(status);
 	const [currentStatusColor, setCurrentStatusColor] = useState<
@@ -50,26 +53,34 @@ const TodoCard = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	useEffect(() => {
+		handleUpdate({
+			id: id,
+			title: title,
+			description: description,
+			status: currentStatus,
+			dueDate: dueDate,
+		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [currentStatus]);
+
 	const toggleStatus = () => {
 		if (currentStatus === "Completed") {
 			setCurrentStatus("Not started");
 			setCurrentStatusColor("bg-blue-200");
 			setCurrentStatusIcon(faCircleXmark);
-			return;
 		}
 
 		if (currentStatus === "Not started") {
 			setCurrentStatus("In progress");
 			setCurrentStatusColor("bg-yellow-200");
 			setCurrentStatusIcon(faClock);
-			return;
 		}
 
 		if (currentStatus === "In progress") {
 			setCurrentStatus("Completed");
 			setCurrentStatusColor("bg-green-200");
 			setCurrentStatusIcon(faCircleCheck);
-			return;
 		}
 	};
 
@@ -97,7 +108,7 @@ const TodoCard = ({
 				className="h-full mx-2 cursor-pointer select-none"
 			>
 				<Typography
-					style={`bg-slate-200 rounded-xl w-44  h-full flex justify-center items-center ${currentStatusColor}`}
+					style={`rounded-xl w-44  h-full flex justify-center items-center ${currentStatusColor}`}
 				>
 					<Typography.Heading
 						variant="h3"
@@ -120,7 +131,7 @@ const TodoCard = ({
 
 			{/* Delete button */}
 			<div
-				className="text-white rounded-xl bg-red-400 h-full w-20 mx-2 flex justify-center items-center"
+				className="text-white rounded-xl bg-red-400 h-full w-20 mx-2 flex justify-center items-center cursor-pointer"
 				onClick={() => handleDelete(id)}
 			>
 				<FontAwesomeIcon icon={faTrash} />

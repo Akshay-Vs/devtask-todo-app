@@ -7,7 +7,7 @@ const Todos = () => {
 
 	return (
 		<div className="px-8 mt-6">
-			<div className="flex justify-start items-start bg-slate-100">
+			<div className="flex justify-start items-start bg-slate-100 px-5">
 				<Typography.Heading
 					variant="h1"
 					style="opacity-80 w-[32%] flex justify-start mx-3"
@@ -24,6 +24,7 @@ const Todos = () => {
 					Due Date
 				</Typography.Heading>
 			</div>
+
 			{data.map((todo) => (
 				<TodoCard
 					key={todo.id}

@@ -14,14 +14,14 @@ interface credentials {
 
 const RegisterPage = () => {
 	const [credentials, setCredentials] = useState<credentials>({
-		fullName: "",
-		email: "",
-		password: "",
+		fullName: "Test User",
+		email: "test@example.com",
+		password: "Password123",
 	});
 	const [error, setError] = useState();
 	const [buttonState, setButtonState] = useState<
 		"enabled" | "disabled" | "loading"
-	>("disabled");
+	>("enabled");
 
 	const handleCredentialsChange = async (
 		event: React.ChangeEvent<HTMLInputElement>

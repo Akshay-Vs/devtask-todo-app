@@ -8,8 +8,8 @@ const LoginPage = () => {
 	// This component represents a login form with validation
 	// It sets local storage after successful login
 	const [credentials, setCredentials] = useState({
-		email: "",
-		password: "",
+		email: "test@example.com",
+		password: "Password123",
 	});
 	const [error, setError] = useState();
 	const [buttonState, setButtonState] = useState<

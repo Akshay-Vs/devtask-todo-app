@@ -3,7 +3,6 @@ import Button from "../Button";
 import TakeInput from "../Input/Input";
 import Typography from "../Typography";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { useUID } from "react-uid";
 
 const InputsFields = () => {
 	const [title, setTitle] = useState("");
@@ -11,7 +10,6 @@ const InputsFields = () => {
 	const [dueDate, setDueDate] = useState("");
 
 	const { addField } = useLocalStorage();
-	const uid = useUID();
 
 	const handleSave = () => {
 		addField({
@@ -19,7 +17,7 @@ const InputsFields = () => {
 			description,
 			dueDate,
 			status: "Not started",
-			id: uid,
+			id: Math.floor(Math.random() * 16777215).toString(16),
 		});
 		setTitle("");
 		setDescription("");

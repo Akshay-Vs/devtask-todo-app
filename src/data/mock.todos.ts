@@ -13,19 +13,5 @@ export const todos =
       "description": "Evaluate the progress made on ongoing tasks and adjust plans as needed.",
       "status": "In progress",
       "dueDate": "2024-04-15"
-    },
-    {
-      "id": "F48DC",
-      "title": "Prepare Presentation Slides",
-      "description": "Create slides for the upcoming team meeting presentation.",
-      "status": "In progress",
-      "dueDate": "2024-04-18"
-    },
-    {
-      "id": "8ABDF",
-      "title": "Submit Expense Report",
-      "description": "Compile and submit the expense report for reimbursement.",
-      "status": "Completed",
-      "dueDate": "2024-04-10"
     }
   ]
